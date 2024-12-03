@@ -14,8 +14,7 @@ def get_safe_reports(input):
     reports = read_input(input)
     safe_reports = []
     for report in reports:
-        report = report.split(" ")
-        report = [int(n) for n in report]
+        report = normalize_report(report)
         consistent_direction = check_consistent_direction(report)
         allowable_increments = False
         if consistent_direction:
@@ -29,6 +28,11 @@ def read_input(input):
     with open(input, "r") as f:
         data = f.readlines()
     return [report.strip() for report in data]
+
+
+def normalize_report(report):
+    report = report.split(" ")
+    return [int(n) for n in report]
 
 
 def check_consistent_direction(report):
