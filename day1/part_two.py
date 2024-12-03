@@ -1,9 +1,10 @@
-from historian_hysteria import read_input, split_pairs, EXAMPLE_INPUT
+from historian_hysteria import read_input, split_pairs, INPUT_PAIRS
 
 # Figure out exactly how often each number from the left list appears in the right list
 # Multiply each number in the left list by the number of times it appears in the right list
 # Add the multiplied numbers to get similarity score
 EXAMPLE_SIMILARITY_SCORE = 31
+SIMILARITY_SCORE = 23927637
 
 
 def get_similarity_score(input_pairs):
@@ -21,5 +22,4 @@ def do_math_magic(left, right):
 
 
 if __name__ == "__main__":
-    similarity = get_similarity_score(EXAMPLE_INPUT)
-    assert similarity == EXAMPLE_SIMILARITY_SCORE
+    print(get_similarity_score(INPUT_PAIRS))

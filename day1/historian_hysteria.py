@@ -7,6 +7,7 @@
 EXAMPLE_INPUT = "inputs/day1/example.txt"
 EXAMPLE_DISTANCE = 11
 INPUT_PAIRS = "inputs/day1/pairs.txt"
+DISTANCE = 2815556
 
 
 def get_total_distance(input_pairs):
@@ -16,15 +17,27 @@ def get_total_distance(input_pairs):
 
 
 def get_sorted_pairs(input_pairs):
+    pairs = read_input(input_pairs)
+    left, right = split_pairs(pairs)
+    return sort_lists(left, right)
+
+
+def read_input(input_pairs):
     with open(input_pairs, "r") as f:
         pairs = f.readlines()
+    return pairs
 
+
+def split_pairs(pairs):
     left = []
     right = []
     for number in pairs:
         left.append(int(number.split("   ")[0].strip()))
         right.append(int(number.split("   ")[1].strip()))
+    return left, right
 
+
+def sort_lists(left, right):
     sorted_left = sorted(left)
     sorted_right = sorted(right)
     return list(zip(sorted_left, sorted_right))
