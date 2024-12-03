@@ -9,6 +9,8 @@ EXAMPLE_DISTANCE = 11
 
 def get_total_distance(input_pairs):
     pairs = get_sorted_pairs(input_pairs)
+    distances = get_distances(pairs)
+    return sum(distances)
 
 
 def get_sorted_pairs(input_pairs):
@@ -18,14 +20,23 @@ def get_sorted_pairs(input_pairs):
     left = []
     right = []
     for number in pairs:
-        left.append(number.split("   ")[0].strip())
-        right.append(number.split("   ")[1].strip())
+        left.append(int(number.split("   ")[0].strip()))
+        right.append(int(number.split("   ")[1].strip()))
 
     sorted_left = sorted(left)
     sorted_right = sorted(right)
     return list(zip(sorted_left, sorted_right))
 
 
+def get_distances(pairs):
+    distances = []
+    for pair in pairs:
+        higher = max(pair[0], pair[1])
+        lower = min(pair[0], pair[1])
+        distances.append((higher - lower))
+    return distances
+
+
 if __name__ == "__main__":
     distance = get_total_distance("inputs/day1/example.txt")
-    # assert distance == EXAMPLE_DISTANCE
+    assert distance == EXAMPLE_DISTANCE
