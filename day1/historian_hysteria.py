@@ -22,10 +22,10 @@ def get_sorted_pairs(input_pairs):
     return sort_lists(left, right)
 
 
-def read_input(input_pairs):
-    with open(input_pairs, "r") as f:
-        pairs = f.readlines()
-    return pairs
+def read_input(input):
+    with open(input, "r") as f:
+        data = f.readlines()
+    return data
 
 
 def split_pairs(pairs):
