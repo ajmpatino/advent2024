@@ -4,7 +4,9 @@
 # Within each pair, figure out how far apart the two numbers are.  Example: pair:(1,3) has distance: 2
 # Determine higher value within each pair, subtract lower value to determine distance
 # Total distance is the sum of all distances
+EXAMPLE_INPUT = "inputs/day1/example.txt"
 EXAMPLE_DISTANCE = 11
+INPUT_PAIRS = "inputs/day1/pairs.txt"
 
 
 def get_total_distance(input_pairs):
@@ -38,5 +40,4 @@ def get_distances(pairs):
 
 
 if __name__ == "__main__":
-    distance = get_total_distance("inputs/day1/example.txt")
-    assert distance == EXAMPLE_DISTANCE
+    print(get_total_distance(INPUT_PAIRS))
